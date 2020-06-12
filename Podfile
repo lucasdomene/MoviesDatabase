@@ -4,6 +4,7 @@ use_frameworks!
 target 'MoviesDatabase' do
 
   pod 'SnapKit', '~> 5.0.0'
+  pod 'SwiftLint'
 
   target 'MoviesDatabaseTests' do
     inherit! :search_paths

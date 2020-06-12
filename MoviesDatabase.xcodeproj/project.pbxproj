@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		374B0A5024940EA800E67672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374B0A4E24940EA800E67672 /* Main.storyboard */; };
 		374B0A5224940EA900E67672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374B0A5124940EA900E67672 /* Assets.xcassets */; };
 		374B0A5524940EAA00E67672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374B0A5324940EAA00E67672 /* LaunchScreen.storyboard */; };
-		374B0A6024940EAA00E67672 /* MoviesDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374B0A5F24940EAA00E67672 /* MoviesDatabaseTests.swift */; };
 		A1086A30EC51E1E22C4F6A4B /* Pods_MoviesDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6949C064753DDC1BFA790D1 /* Pods_MoviesDatabase.framework */; };
 		C1B28DAA1AF5F67188DC957A /* Pods_MoviesDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D0DCB83DD994831D0B0E2FB /* Pods_MoviesDatabaseTests.framework */; };
 /* End PBXBuildFile section */
@@ -38,7 +37,6 @@
 		374B0A5424940EAA00E67672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		374B0A5624940EAA00E67672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		374B0A5B24940EAA00E67672 /* MoviesDatabaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesDatabaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		374B0A5F24940EAA00E67672 /* MoviesDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDatabaseTests.swift; sourceTree = "<group>"; };
 		374B0A6124940EAA00E67672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B9EEAE77A3EF9AB7162914B /* Pods-MoviesDatabaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesDatabaseTests.release.xcconfig"; path = "Target Support Files/Pods-MoviesDatabaseTests/Pods-MoviesDatabaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		616AED48721A47FBDE291C7F /* Pods-MoviesDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesDatabase.release.xcconfig"; path = "Target Support Files/Pods-MoviesDatabase/Pods-MoviesDatabase.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 		374B0A5E24940EAA00E67672 /* MoviesDatabaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				374B0A5F24940EAA00E67672 /* MoviesDatabaseTests.swift */,
 				374B0A6124940EAA00E67672 /* Info.plist */,
 			);
 			path = MoviesDatabaseTests;
@@ -119,7 +116,6 @@
 				7D2D84524B04A4CEB08EFB35 /* Pods-MoviesDatabaseTests.debug.xcconfig */,
 				5B9EEAE77A3EF9AB7162914B /* Pods-MoviesDatabaseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -144,6 +140,7 @@
 				374B0A4224940EA800E67672 /* Frameworks */,
 				374B0A4324940EA800E67672 /* Resources */,
 				842C45E58627FBD322B1E20E /* [CP] Embed Pods Frameworks */,
+				37446A1124941F1100B3A4D3 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -233,6 +230,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		37446A1124941F1100B3A4D3 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		46F459455286C9882A5059DD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -328,7 +343,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				374B0A6024940EAA00E67672 /* MoviesDatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
