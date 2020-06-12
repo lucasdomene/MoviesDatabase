@@ -6,8 +6,6 @@
 //  Copyright © 2020 domene. All rights reserved.
 //
 
-// swiftlint:disable line_length
-
 import UIKit
 
 @UIApplicationMain
