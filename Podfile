@@ -5,9 +5,9 @@ target 'MoviesDatabase' do
 
   pod 'SnapKit', '~> 5.0.0'
   pod 'SwiftLint'
+  pod 'R.swift'
 
   target 'MoviesDatabaseTests' do
-    inherit! :search_paths
     pod 'SnapshotTesting', '~> 1.7.0'
   end
 

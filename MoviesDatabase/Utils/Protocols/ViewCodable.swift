@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol ViewCodable where Self: UIView {
     func buildViewHierarchy()
@@ -21,4 +22,6 @@ extension ViewCodable where Self: UIView {
         setupConstraints()
         additionalSetup()
     }
+    
+    func additionalSetup() {}
 }
