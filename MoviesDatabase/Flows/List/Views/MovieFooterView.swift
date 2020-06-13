@@ -13,19 +13,21 @@ class MovieFooterView: UIView {
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 2
         return stackView
     }()
     
     lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.numberOfLines = 2
+        title.font = R.font.sfProRoundedSemibold(size: 14)
         title.textColor = R.color.mintCream()
         return title
     }()
     
     lazy var yearLabel: UILabel = {
         let year = UILabel()
+        year.font = R.font.sfProRoundedLight(size: 10)
         year.textColor = R.color.mintCream()
         return year
     }()

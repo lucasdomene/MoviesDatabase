@@ -12,7 +12,6 @@ final class MoviewCell: UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
-        imageView.backgroundColor = R.color.mintCream()
         return imageView
     }()
     
@@ -28,8 +27,15 @@ final class MoviewCell: UICollectionViewCell {
     
     lazy var favoriteButton: UIButton = {
         let favoriteButton = UIButton()
-        let image = UIImage(named: "favorite")
-        favoriteButton.setImage(image, for: .normal)
+        
+        let favoriteImageNormal = UIImage(systemName: "heart")
+        let favoriteImageSelected = UIImage(systemName: "heart.fill")
+        
+        favoriteButton.setImage(favoriteImageNormal, for: .normal)
+        favoriteButton.setImage(favoriteImageSelected, for: .selected)
+        
+        favoriteButton.tintColor = R.color.limeGreen()
+        
         return favoriteButton
     }()
     
