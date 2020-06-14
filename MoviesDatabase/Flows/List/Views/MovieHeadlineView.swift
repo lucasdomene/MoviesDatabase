@@ -1,5 +1,5 @@
 //
-//  MovieFooterView.swift
+//  MovieHeadlineView.swift
 //  MoviesDatabase
 //
 //  Created by lucas.firmo on 6/12/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieFooterView: UIView {
+final class MovieHeadlineView: UIView {
     
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -20,14 +20,14 @@ class MovieFooterView: UIView {
     lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.numberOfLines = 2
-        title.font = R.font.sfProRoundedSemibold(size: 14)
+        title.font = R.font.sfProRoundedSemibold(size: 20)
         title.textColor = R.color.mintCream()
         return title
     }()
     
     lazy var yearLabel: UILabel = {
         let year = UILabel()
-        year.font = R.font.sfProRoundedLight(size: 10)
+        year.font = R.font.sfProRoundedLight(size: 16)
         year.textColor = R.color.mintCream()
         return year
     }()
@@ -43,7 +43,7 @@ class MovieFooterView: UIView {
     
 }
 
-extension MovieFooterView: ViewCodable {
+extension MovieHeadlineView: ViewCodable {
    
     func buildViewHierarchy() {
         addSubview(stackView)
@@ -53,7 +53,7 @@ extension MovieFooterView: ViewCodable {
     
     func setupConstraints() {
         stackView.snp.makeConstraints { make in
-            make.left.right.top.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
     

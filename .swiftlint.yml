@@ -43,7 +43,8 @@ disabled_rules:
   - nesting
   - notification_center_detachment
   - class_delegate_protocol
-
+  - identifier_name
+  - closure_parameter_position
 line_length: 160
 file_length:
   warning: 500

@@ -19,12 +19,12 @@ class MoviewCellTests: XCTestCase {
                                                  size: size))
         
         movieCell.imageView.image = R.image.moviePoster()
-        movieCell.footerView.titleLabel.text = "Ad Astra"
-        movieCell.footerView.yearLabel.text = "2019"
+        movieCell.headlineView.titleLabel.text = "Ad Astra"
+        movieCell.headlineView.yearLabel.text = "2019"
         
         assertSnapshot(matching: movieCell,
                        as: .image,
-                       record: true)
+                       record: false)
     }
     
 }

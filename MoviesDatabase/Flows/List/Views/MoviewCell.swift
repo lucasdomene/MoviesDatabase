@@ -12,6 +12,8 @@ final class MoviewCell: UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -23,18 +25,15 @@ final class MoviewCell: UICollectionViewCell {
         return stackView
     }()
     
-    let footerView = MovieFooterView(frame: .zero)
+    let headlineView = MovieHeadlineView(frame: .zero)
     
     lazy var favoriteButton: UIButton = {
         let favoriteButton = UIButton()
         
-        let favoriteImageNormal = UIImage(systemName: "heart")
-        let favoriteImageSelected = UIImage(systemName: "heart.fill")
-        
-        favoriteButton.setImage(favoriteImageNormal, for: .normal)
-        favoriteButton.setImage(favoriteImageSelected, for: .selected)
-        
-        favoriteButton.tintColor = R.color.limeGreen()
+        favoriteButton.setImage(R.image.favoriteNormal(),
+                                for: .normal)
+        favoriteButton.setImage(R.image.favoriteSelected(),
+                                for: .highlighted)
         
         return favoriteButton
     }()
@@ -55,23 +54,32 @@ extension MoviewCell: ViewCodable {
     func buildViewHierarchy() {
         addSubview(imageView)
         addSubview(stackView)
-        stackView.addArrangedSubview(footerView)
-        stackView.addArrangedSubview(favoriteButton)
+        addSubview(favoriteButton)
+        stackView.addArrangedSubview(headlineView)
     }
     
     func setupConstraints() {
         imageView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.8)
+            make.top.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(imageView.snp.width).multipliedBy(1.5)
         }
         
         favoriteButton.snp.makeConstraints { make in
-            make.width.height.equalTo(30).priority(.required)
+            make.width.height.equalTo(Constraints.buttonSize)
+            make.top.equalTo(imageView.snp.bottom)
+                .offset(Constraints.margin * 2)
+            make.right.equalToSuperview()
+                .inset(Constraints.margin)
         }
-        
+
         stackView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(8)
-            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.left.equalToSuperview()
+                .inset(Constraints.margin)
+            make.right.equalTo(favoriteButton.snp.left)
+                .offset(Constraints.margin)
+            make.top.equalTo(imageView.snp.bottom)
+                .offset(Constraints.margin * 2)
             make.bottom.lessThanOrEqualToSuperview()
         }
     }

@@ -9,14 +9,14 @@
 import UIKit
 import SnapKit
 
-protocol ViewCodable where Self: UIView {
+protocol ViewCodable {
     func buildViewHierarchy()
     func setupConstraints()
     func additionalSetup()
     func setupView()
 }
 
-extension ViewCodable where Self: UIView {
+extension ViewCodable {
     func setupView() {
         buildViewHierarchy()
         setupConstraints()
