@@ -18,3 +18,16 @@ struct Movie {
     var score: Double
     
 }
+
+extension Movie: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case year = "release_date"
+        case poster = "poster_path"
+        case wallpaper = "backdrop_path"
+        case score = "vote_average"
+    }
+    
+}

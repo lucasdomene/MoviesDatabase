@@ -10,6 +10,8 @@ import UIKit
 
 class MovieListViewController: UIViewController {
     
+    var movies = [Movie]()
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = Constraints.cellSpacing
@@ -42,15 +44,20 @@ class MovieListViewController: UIViewController {
             session: session, parameterEncoder: parameterEncoder
         )
         
-        let route = MovieAPI.discover(page: 2)
-        networkManager.request(route: route) { result in
+        let movieService = MovieService(networkManager: networkManager)
+        movieService.fetch(page: 1) { [weak self] result in
             switch result {
-            case .success(let data):
-                print(data)
+            case .success(let movies):
+                print(movies)
+                self?.movies = movies
+                DispatchQueue.main.async {
+                    self?.collectionView.reloadData()
+                }
             case .failure(let error):
                 print(error)
             }
         }
+        
     }
     
     func registerCells() {
@@ -76,7 +83,7 @@ extension MovieListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -85,9 +92,11 @@ extension MovieListViewController: UICollectionViewDataSource {
             withReuseIdentifier: Identifiers.movieCell,
             for: indexPath) as! MoviewCell
         
+        let movie = movies[indexPath.row]
+        
         cell.imageView.image = R.image.moviePoster()
-        cell.headlineView.titleLabel.text = "Ad Astra"
-        cell.headlineView.yearLabel.text = "2019"
+        cell.headlineView.titleLabel.text = movie.title
+        cell.headlineView.yearLabel.text = movie.year
         
         return cell
     }

@@ -8,26 +8,27 @@
 
 import Foundation
 
+typealias HTTPHeader = [String: String]
+typealias Parameters = [String: Any]
+
 protocol Route {
-    var baseURL: String { get }
+    var baseURL: URL { get }
     var path: String { get }
     var httpMethod: HTTPMethod { get }
-    var bodyParameters: [String: Any] { get }
-    var urlParameters: [String: Any] { get }
+    var bodyParameters: Parameters { get }
+    var urlParameters: Parameters { get }
     
     func asURLRequest(parameterEncoder: ParameterEncoderType) -> URLRequest?
 }
 
 extension Route {
-    var baseURL: String {
-        return "https://api.themoviedb.org/3"
+    var baseURL: URL {
+        return Environment.baseURL
     }
     
     func asURLRequest(parameterEncoder: ParameterEncoderType) -> URLRequest? {
-        var baseURL = URL(string: self.baseURL)
-        baseURL?.appendPathComponent(path)
-        
-        guard let url = baseURL else { return nil }
+        var url = baseURL
+        url.appendPathComponent(path)
         let urlRequest = URLRequest(url: url)
 
         return parameterEncoder.encode(

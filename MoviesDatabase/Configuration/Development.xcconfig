@@ -1,0 +1,24 @@
+//
+//  Development.xcconfig
+//  MoviesDatabase
+//
+//  Created by lucas.firmo on 6/14/20.
+//  Copyright © 2020 domene. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-MoviesDatabase/Pods-MoviesDatabase.debug (development).xcconfig"
+
+#include "Pods/Target Support Files/Pods-MoviesDatabase/Pods-MoviesDatabase.release (development).xcconfig"
+
+// Server URL
+BASE_URL = https:/$()/api.themoviedb.org/3
+
+// Keys
+API_KEY = d34a8f4810509c701b686909f33d15e2
+
+// App Settings
+PRODUCT_NAME=MoviesDB (Dev)
+PRODUCT_BUNDLE_IDENTIFIER=com.domene.dev.MoviesDatabase

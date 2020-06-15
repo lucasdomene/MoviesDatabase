@@ -8,36 +8,13 @@
 
 import Foundation
 
-typealias HTTPHeader = [String: String]
-typealias Parameters = [String: Any]
 typealias NetworkResponse = (Result<Data, Error>) -> Void
-
-enum MovieDBError: Error {
-    case noConnection
-    case fetching
-    
-    init(code: Int) {
-        switch code {
-        case NSURLErrorNotConnectedToInternet:
-            self = .noConnection
-        default:
-            self = .fetching
-        }
-    }
-}
-
-protocol URLSessionType {
-    func dataTask(with request: URLRequest,
-                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-}
-
-extension URLSession: URLSessionType {}
 
 final class NetworkManager {
     
-    let session: URLSessionType
-    let parameterEncoder: ParameterEncoderType
-    var task: URLSessionTask?
+    private let session: URLSessionType
+    private let parameterEncoder: ParameterEncoderType
+    private var task: URLSessionTask?
     
     init(session: URLSessionType,
          parameterEncoder: ParameterEncoderType) {

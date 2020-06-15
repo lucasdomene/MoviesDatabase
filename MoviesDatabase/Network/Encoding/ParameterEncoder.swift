@@ -8,21 +8,10 @@
 
 import Foundation
 
-protocol EncoderType {
-    func encode(_ urlRequest: URLRequest,
-                parameters: Parameters) throws -> URLRequest
-}
-
-protocol ParameterEncoderType {
-    func encode(urlRequest: URLRequest,
-                bodyParameters: Parameters,
-                urlParameters: Parameters) -> URLRequest?
-}
-
 struct ParameterEncoder: ParameterEncoderType {
     
-    let bodyEncoder: EncoderType
-    let urlEncoder: EncoderType
+    private let bodyEncoder: EncoderType
+    private let urlEncoder: EncoderType
     
     init(bodyEncoder: EncoderType,
          urlEncoder: EncoderType) {
@@ -61,7 +50,7 @@ struct ParameterEncoder: ParameterEncoderType {
     }
     
     private func addDefaultParameters(urlParameters: inout Parameters) {
-        urlParameters["api_key"] = "d34a8f4810509c701b686909f33d15e2"
+        urlParameters["api_key"] = Environment.apiKey
     }
     
 }
